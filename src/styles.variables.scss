@@ -1,0 +1,44 @@
+$colorDanger: #ff0000;
+$backgroundColorDanger: #d9534f;
+$borderColorDanger: #b92c28;
+
+$colorWarning: #ff9c00;
+
+$colorDefault: #212529;
+
+$colorSuccess: #00ff00;
+$borderColorSuccess: #44b928;
+
+$colorInfo: #00efff;
+
+$colorPrimary: #007bff;
+
+$selectedBgColor: #b0c4de;
+
+$tableStripedBgColor: #f9f9f9;
+$tableHoverBgColor: #e2e2e2;
+
+$headerBackgroundTESTColor: #c27abc;
+
+$columnBgColor: #eee;
+$commentBgColor: #649bff;
+$partChangeBgColor: blue;
+$checksDueColor: #888;
+$checksOverdueColor: #b40000;
+$checksInactiveColor: #008db4;
+$checksPassColor: #00db00;
+$checksWarnColor: orange;
+$checksFailColor: #ff0000;
+
+$repeatDefectBgColor: yellow;
+
+$borderStatusWidth: 3px;
+$borderStatusHeight: 3px;
+
+/** These are specific to coloring the specification areas */
+$limit-default:             rgba(239,239,239,.4);
+$limit-success:             rgba(0,207,31,.4);
+$limit-alert:               rgba(255,216,0,.4);
+$limit-warning:             rgba(255,135,0,.4);
+$limit-danger:              rgba(255,50,48,.4);
+$limit-mnr-reject:          rgba(137,34,255,.4);

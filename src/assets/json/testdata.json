@@ -1,0 +1,104 @@
+{
+  "fieldmaster": [
+    {
+      "id": 1,
+      "fieldid": "F0001",
+      "fieldname": "First Name",
+      "type": "Textbox"
+    },
+    {
+      "id": 2,
+      "fieldid": "F0002",
+      "fieldname": "Last Name",
+      "type": "Textbox"
+    },
+    {
+      "id": 3,
+      "fieldid": "F0003",
+      "fieldname": "Gender",
+      "type": "Radio"
+    },
+    {
+      "id": 4,
+      "fieldid": "F0004",
+      "fieldname": "Nationality",
+      "type": "Dropdown"
+    },
+    {
+      "id": 5,
+      "fieldid": "F0005",
+      "fieldname": "Religion",
+      "type": "Radio"
+    },
+    {
+      "fieldid": "F0007",
+      "fieldname": "Last Name",
+      "type": "Radio",
+      "id": 6
+    },
+    {
+      "fieldid": "F0008",
+      "fieldname": "Col1",
+      "type": "Textbox",
+      "id": 7
+    },
+    {
+      "fieldid": "F0008",
+      "fieldname": "COl2er",
+      "type": "Textbox",
+      "id": 8
+    },
+    {
+      "fieldid": "F0009",
+      "fieldname": "Religion",
+      "type": "Textbox",
+      "id": 9
+    }
+  ],
+  "groupsmaster": [
+    {
+      "id": 1,
+      "fieldid": "F0001",
+      "fieldname": "First Name",
+      "type": "Textbox"
+    },
+    {
+      "id": 2,
+      "fieldid": "F0002",
+      "fieldname": "Last Name",
+      "type": "Textbox"
+    },
+    {
+      "id": 3,
+      "fieldid": "F0003",
+      "fieldname": "Gender",
+      "type": "RadioButton"
+    },
+    {
+      "id": 4,
+      "fieldid": "F0004",
+      "fieldname": "Nationality",
+      "type": "Textbox"
+    },
+    {
+      "id": 5,
+      "fieldid": "F0005",
+      "fieldname": "Age",
+      "type": "Textbox"
+    }
+  ],
+  "controlsdata": [
+    {
+      "controlname": "Textbox"
+    },
+    {
+      "controlname": "Radio"
+    },
+    {
+      "controlname": "Checkbox"
+    },
+    {
+      "controlname": "Dropdown"
+    }
+  ]
+}

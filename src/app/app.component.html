@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="header">
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="navbar nav_title" style="border: 0;">
+            <!-- <a href="index.html" class="site_title"><span>Chalo</span></a> -->
+            <a href="index.html" class="site_title">
+              <img src="../assets/images/chalo-logo.png" style="height:50px;">
+            </a>
+          </div>
+          <div class="dropdown aligndropdown">
+            <a  type="text" class="aligndropdownmenu" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-cog"></i>
+              </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" [routerLink]="['/field']">Field Master</a>
+                <a class="dropdown-item" [routerLink]="['/group']">Group master</a>
+                <a class="dropdown-item" [routerLink]="['/template']">Template Master</a>
+            </div>
+          </div>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <li role="presentation" class="nav-item dropdown">
+              <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-cog"></i>
+              </a>
+              <ul class="dropdown-menu list-unstyled" role="menu" aria-labelledby="navbarDropdown1">
+                <li class="nav-item">
+                  <a [routerLink]="['/field']" class="dropdown-item">Field Master</a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['/group']" class="dropdown-item">Group Master</a>
+                </li>
+                <li class="nav-item active">
+                  <a [routerLink]="['/template']" class="dropdown-item">Template Master</a>
+                </li>
+              </ul>
+            </li>
+
+          </ul> -->
+        </nav>
+      </div>  
+      <div class="clearfix"></div>
+    </div>
+
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    <footer>
+      <div class="text-center">
+        &copy; Copyrights Chalo. All rights reserved.
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@mixin table-fixed-header() {
+  /* fixed-header */
+  table-layout: fixed;
+
+  thead {
+    tr {
+      display: block;
+      position: relative;
+      overflow-x: hidden;
+    }
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

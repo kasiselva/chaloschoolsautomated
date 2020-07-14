@@ -1,0 +1,187 @@
+<div class="container body">
+    <div class="main_container">
+
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Field List</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" (click)= "addfieldmaster()">Add New</button>
+                                    </li>
+                                    <!-- <li>
+                                      <mat-icon aria-hidden="false" aria-label="Add New" (click)= "addfieldmaster()">add_circle</mat-icon>
+                                    </li> -->
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                       <div>
+                        <div class="mat-elevation-z8">
+                          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                             <!-- Field Id Column -->
+                             <ng-container matColumnDef="id">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                            </ng-container>
+                            <!-- Field Id Column -->
+                            <ng-container matColumnDef="fieldid">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Field Id </th>
+                              <td mat-cell *matCellDef="let element"> {{element.fieldid}} </td>
+                            </ng-container>
+                          
+                            <!-- Field Name Column -->
+                            <ng-container matColumnDef="fieldname">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Field Name </th>
+                              <td mat-cell *matCellDef="let element"> {{element.fieldname}} </td>
+                            </ng-container>
+                          
+                            <!-- Type Column -->
+                            <ng-container matColumnDef="type">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                            </ng-container>
+                          
+                            <ng-container matColumnDef="symbol">
+                              <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+                              <td mat-cell *matCellDef="let element">
+                                <!-- <mat-icon style="cursor: pointer;" matTooltip="Edit" aria-hidden="false" aria-label="Example home icon" (click)= "editfieldmaster(element)">edit</mat-icon> -->
+                                <button mat-mini-fab color="primary" matTooltip="Edit" aria-label="Edit" (click)= "editfieldmaster(element)">
+                                  <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-mini-fab color="primary" matTooltip="delete" aria-label="Delete" (click)= "deletemaster(element.id)">
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                                <!-- <mat-icon style="cursor: pointer;" matTooltip="Delete" aria-hidden="false" aria-label="Delete icon" (click)= "deletemaster(element.id)">delete</mat-icon> -->
+                              </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+                          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div> 
+                        <!-- <table class="table table-bordered table-striped table-actions">
+                            <thead>
+                              <tr>
+                                  <th>
+                                      Field Id
+                                   </th>
+                                <th>
+                                   Field Name
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                  Action
+                              </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr  *ngFor="let item of fieldmasterlist" >
+                                  <td>{{item.fieldid}}</td>
+                                <td>{{item.fieldname}}</td>
+                                <td>{{item.type}}</td>
+                              <td ><button class="btn-success" data-toggle="modal" (click)= "editfieldmaster(item)" data-toggle="modal" ><i class="fa fa-pencil"
+                                    title="Edit"></i></button>
+                              <button class="btn-danger" title="Delete" (click)= "deletemaster(item.id)"><i
+                                 class="fa fa-trash"></i></button></td>
+                              </tr>
+                              <tr *ngIf="!fieldmasterlist">
+                                <td colspan="4" class="text-center"><h6>NO DATA FOUND</h6></td>
+                              </tr>
+                            </tbody>
+                          </table> -->
+
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': ismodelShow ? 'none' : 'block'}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{popupHeader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ismodelShow = true;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-sm-3" for="fieldid">Field Id :</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="fieldid" [(ngModel)]="fieldmaster.fieldid" placeholder="" name="fieldid">
+                </div>
+              </div>
+              <div class="form-group formgroupalign">
+                <label class="control-label col-sm-3" for="pwd">Field Name:</label>
+                <div class="col-sm-9">          
+                  <input type="text" class="form-control" id="fieldname" [(ngModel)]="fieldmaster.fieldname"  name="fieldname">
+                </div>
+              </div>
+              <div class="form-group formgroupalign">
+                <label class="control-label col-sm-3" for="pwd">Type:</label>
+                <div class="col-sm-9">   
+                  <select class="form-control" [(ngModel)]="fieldmaster.type" name="typeselect">
+                    <option value="" selected>Select Type</option>
+                    <option *ngFor="let controls of controlsdatalist" [value]="controls.controlname">{{controls.controlname}}</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal" (click)="ismodelShow = true;">Close</button>
+        <button type="button" class="btn btn-primary" (click)= "savefieldmaster()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="modal fade" [ngStyle]="{'display':block}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add or Edit Popup</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="fieldid">Field Id :</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="fieldid" [(ngModel)]="fieldmaster.fieldid" placeholder="" name="fieldid">
+                  </div>
+                </div>
+                <div class="form-group formgroupalign">
+                  <label class="control-label col-sm-3" for="pwd">Field Name:</label>
+                  <div class="col-sm-9">          
+                    <input type="text" class="form-control" id="fieldname" [(ngModel)]="fieldmaster.fieldname"  name="fieldname">
+                  </div>
+                </div>
+                <div class="form-group formgroupalign">
+                  <label class="control-label col-sm-3" for="pwd">Type:</label>
+                  <div class="col-sm-9">   
+                    <select class="form-control" [(ngModel)]="fieldmaster.type" name="typeselect">
+                      <option value="" selected>Select Type</option>
+                      <option *ngFor="let controls of controlsdatalist" [value]="controls.controlname">{{controls.controlname}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)= "savefieldmaster()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
